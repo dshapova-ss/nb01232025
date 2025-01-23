@@ -26,4 +26,8 @@ shutil.copytree(
 )
 
 # Program result without sensitive info 
-logging.info(f"Files copied successfully from {str(source_path).replace(str(Path.home()), "~")} to {str(destination_path).replace(str(Path.home()), "~")}.")
+home_dir = str(Path.home())
+source_path_str = str(source_path).replace(home_dir, "~")
+destination_path_str = str(destination_path).replace(home_dir, "~")
+
+logging.info(f"Files copied successfully from {source_path_str} to {destination_path_str}.")
