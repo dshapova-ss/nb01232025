@@ -16,7 +16,8 @@ destination_path = Path("/home/runner/work/nb01232025/nb01232025/destiny").resol
 
 shutil.copytree(
     source_path,
-    destination_path
+    destination_path,
+    dirs_exist_ok=True
 )
 
 logging.info(f"Files copied successfully from {source_path} to {destination_path}.")
