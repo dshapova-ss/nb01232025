@@ -11,9 +11,12 @@ logging.basicConfig(
     ]
 )
 
+source_path = Path("/home/runner/work/nb01232025/nb01232025").resolve()
+destination_path = Path("/home/runner/work/nb01232025/nb01232025").resolve()
+
 shutil.copytree(
-    Path(input("Enter the source folder path: ")).resolve(),
-    Path(input("Enter the destination folder path: ")).resolve()
+    source_path,
+    destination_path
 )
 
-logging.info("Files copied successfully.")
+logging.info(f"Files copied successfully from {source_path} to {destination_path}.")
