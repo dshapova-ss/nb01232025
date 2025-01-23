@@ -12,7 +12,7 @@ logging.basicConfig(
 )
 
 source_path = Path("/home/runner/work/nb01232025/nb01232025").resolve()
-destination_path = Path("/home/runner/work/nb01232025/nb01232025").resolve()
+destination_path = Path("/home/runner/work/nb01232025").resolve()
 
 shutil.copytree(
     source_path,
