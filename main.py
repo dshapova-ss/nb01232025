@@ -25,4 +25,6 @@ shutil.copytree(
     dirs_exist_ok=True
 )
 
+# Program result without sensitive info 
+base_dir_str = str(base_dir).replace(str(Path.home()), "~")
 logging.info(f"Files copied successfully from {source_path} to {destination_path}.")
