@@ -1,5 +1,4 @@
 import shutil
-import os
 from pathlib import Path
 import logging
 
@@ -11,8 +10,14 @@ logging.basicConfig(
     ]
 )
 
-source_path = Path("/home/runner/work/nb01232025/nb01232025").resolve()
-destination_path = Path("/home/runner/work/nb01232025/nb01232025/destiny").resolve()
+# Use user directory as a base to ensure OS compatibility
+base_dir = Path.home() / "automation_test"
+source_path = base_dir / "source"
+destination_path = base_dir / "destiny"
+
+# Create source directory and some files for demonstration purposes
+source_path.mkdir(parents=True, exist_ok=True)
+(destination_path).mkdir(parents=True, exist_ok=True)
 
 shutil.copytree(
     source_path,
