@@ -29,7 +29,6 @@ destination_path.mkdir(parents=True, exist_ok=True)
 logging.info("checking directories before copytree")
 contents = os.listdir(destination_path)
 logging.info(contents)
-logging.info("end of directory")
 
 # Copy source directory contents to destination directory
 shutil.copytree(source_path, destination_path, dirs_exist_ok=True)
@@ -38,6 +37,5 @@ shutil.copytree(source_path, destination_path, dirs_exist_ok=True)
 logging.info("checking directories after copytree")
 contents = os.listdir(destination_path)
 logging.info(contents)
-logging.info("end of directory")
 
 logging.info(f"Files copied successfully from {source_path} to {destination_path}.")
