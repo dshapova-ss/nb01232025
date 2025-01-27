@@ -33,6 +33,7 @@ jobs:
         run: python main.py
 
       - name: Compare source and destination directories (Linux/macOS)
+        if: matrix.os != 'windows-latest'
         run: |
           if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
             diff -qr /home/runner/automation_test/source /home/runner/automation_test/destiny
