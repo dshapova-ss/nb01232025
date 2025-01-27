@@ -51,9 +51,10 @@ jobs:
 
       - name: Compare source and destination directories (Windows)
         if: matrix.os == 'windows-latest'
+        shell: cmd
         run: |
           diff -qr C:\Users\runneradmin\automation_test\source C:\Users\runneradmin\automation_test\destiny
-          if [ $? -ne 0 ]; then
-            echo "Directories are different. Exiting..."
+          if %ERRORLEVEL% NEQ 0 (
+            echo Directories are different. Exiting...
             exit 1
-          fi
+          )
