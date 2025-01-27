@@ -47,5 +47,5 @@ jobs:
           powershell -Command "
             $source = Get-ChildItem 'C:\Users\runneradmin\automation_test\source' -Recurse
             $destination = Get-ChildItem 'C:\Users\runneradmin\automation_test\destiny' -Recurse
-            Compare-Object $source $destination
+            Compare-Object -ReferenceObject $source -DifferenceObject $destination
           "
