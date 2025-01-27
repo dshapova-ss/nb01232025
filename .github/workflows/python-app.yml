@@ -56,7 +56,7 @@ jobs:
             $source = Get-ChildItem 'C:\Users\runneradmin\automation_test\source' -Recurse
             $destination = Get-ChildItem 'C:\Users\runneradmin\automation_test\destiny' -Recurse
             $result = Compare-Object -ReferenceObject \$source -DifferenceObject \$destination
-            if (\$result) {
+            if ($result) {
               Write-Host 'Directories are different. Exiting...'
               exit 1
             }
