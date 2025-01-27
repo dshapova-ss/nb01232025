@@ -32,12 +32,15 @@ jobs:
       - name: Run script
         run: python main.py
 
-      - name: Compare source and destination directories
+      - name: Compare source and destination directories (Linux/macOS)
         run: |
           if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
             diff -qr /home/runner/automation_test/source /home/runner/automation_test/destiny
           elif [ "${{ matrix.os }}" == "macos-latest" ]; then
             diff -qr /Users/runner/automation_test/source /Users/runner/automation_test/destiny
-          elif [ "${{ matrix.os }}" == "windows-latest" ]; then
-            powershell -Command "if ('${{ matrix.os }}' -eq 'windows-latest') { Compare-Object (Get-Content 'C:\Users\runneradmin\automation_test\source') (Get-Content 'C:\Users\runneradmin\automation_test\destiny') }"
           fi
+
+      - name: Compare source and destination directories (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          powershell -Command "Compare-Object (Get-Content 'C:\Users\runneradmin\automation_test\source') (Get-Content 'C:\Users\runneradmin\automation_test\destiny')"
