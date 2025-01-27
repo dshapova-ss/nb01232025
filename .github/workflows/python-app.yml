@@ -52,12 +52,8 @@ jobs:
       - name: Compare source and destination directories (Windows)
         if: matrix.os == 'windows-latest'
         run: |
-          powershell -Command "
-            $source = Get-ChildItem 'C:\Users\runneradmin\automation_test\source' -Recurse
-            $destination = Get-ChildItem 'C:\Users\runneradmin\automation_test\destiny' -Recurse
-            $result = Compare-Object -ReferenceObject \$source -DifferenceObject \$destination
-            if ($result) {
-              Write-Host 'Directories are different. Exiting...'
-              exit 1
-            }
-          "
+          diff -qr C:\Users\runneradmin\automation_test\source C:\Users\runneradmin\automation_test\destiny
+          if [ $? -ne 0 ]; then
+            echo "Directories are different. Exiting..."
+            exit 1
+          fi
