@@ -36,7 +36,7 @@ jobs:
         run: |
           if [[ ${{ matrix.os }} == 'ubuntu-latest' ]]; then
             diff -qr /home/runner/automation_test/source /home/runner/automation_test/destiny
-          if [[ ${{ matrix.os }} == 'macos-latest' ]]; then
+          elif [[ ${{ matrix.os }} == 'macos-latest' ]]; then
             diff -qr /Users/runner/automation_test/source /Users/runner/automation_test/destiny
           elif [[ ${{ matrix.os }} == 'windows-latest' ]]; then
             fc /b "C:\Users\runneradmin\automation_test\source" "C:\Users\runneradmin\automation_test\destiny"
